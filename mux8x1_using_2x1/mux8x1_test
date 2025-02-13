@@ -1,0 +1,125 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_001ECF70 .scope module, "mux8x1_tb" "mux8x1_tb" 2 4;
+ .timescale -9 -12;
+v008207F0_0 .var "a", 7 0;
+v008208F8_0 .net "out", 0 0, L_00821478; 1 drivers
+v00820CE8_0 .var "select", 2 0;
+S_001ED108 .scope module, "uut" "mux8x1" 2 13, 3 9, S_001ECF70;
+ .timescale 0 0;
+v00820378_0 .net "D", 7 0, v008207F0_0; 1 drivers
+v008203D0_0 .alias "out", 0 0, v008208F8_0;
+v00820588_0 .net "select", 2 0, v00820CE8_0; 1 drivers
+v008208A0_0 .net "y0", 0 0, L_00821318; 1 drivers
+v008205E0_0 .net "y1", 0 0, L_00821210; 1 drivers
+v00820638_0 .net "y2", 0 0, L_00820C90; 1 drivers
+v00820690_0 .net "y3", 0 0, L_00820D40; 1 drivers
+v00820740_0 .net "y4", 0 0, L_008210B0; 1 drivers
+v00820798_0 .net "y5", 0 0, L_00821580; 1 drivers
+L_00821268 .part v008207F0_0, 0, 1;
+L_00820EF8 .part v008207F0_0, 1, 1;
+L_00820EA0 .part v00820CE8_0, 0, 1;
+L_008213C8 .part v008207F0_0, 2, 1;
+L_00820FA8 .part v008207F0_0, 3, 1;
+L_00820F50 .part v00820CE8_0, 0, 1;
+L_00821370 .part v008207F0_0, 4, 1;
+L_00820B30 .part v008207F0_0, 5, 1;
+L_008212C0 .part v00820CE8_0, 0, 1;
+L_00820D98 .part v008207F0_0, 6, 1;
+L_00820DF0 .part v008207F0_0, 7, 1;
+L_00820BE0 .part v00820CE8_0, 0, 1;
+L_00820E48 .part v00820CE8_0, 1, 1;
+L_00821420 .part v00820CE8_0, 1, 1;
+L_00821000 .part v00820CE8_0, 2, 1;
+S_001E8D58 .scope module, "m1" "mux2x1" 3 14, 3 4, S_001ED108;
+ .timescale 0 0;
+v00820A00_0 .net "a", 0 0, L_00821268; 1 drivers
+v008202C8_0 .net "b", 0 0, L_00820EF8; 1 drivers
+v00820530_0 .alias "out", 0 0, v008208A0_0;
+v008209A8_0 .net "select", 0 0, L_00820EA0; 1 drivers
+L_00821318 .functor MUXZ 1, L_00821268, L_00820EF8, L_00820EA0, C4<>;
+S_001E84D8 .scope module, "m2" "mux2x1" 3 15, 3 4, S_001ED108;
+ .timescale 0 0;
+v00820320_0 .net "a", 0 0, L_008213C8; 1 drivers
+v00820848_0 .net "b", 0 0, L_00820FA8; 1 drivers
+v008206E8_0 .alias "out", 0 0, v008205E0_0;
+v00820950_0 .net "select", 0 0, L_00820F50; 1 drivers
+L_00821210 .functor MUXZ 1, L_008213C8, L_00820FA8, L_00820F50, C4<>;
+S_001E8BC0 .scope module, "m3" "mux2x1" 3 16, 3 4, S_001ED108;
+ .timescale 0 0;
+v001EA888_0 .net "a", 0 0, L_00821370; 1 drivers
+v00820480_0 .net "b", 0 0, L_00820B30; 1 drivers
+v008204D8_0 .alias "out", 0 0, v00820638_0;
+v00820428_0 .net "select", 0 0, L_008212C0; 1 drivers
+L_00820C90 .functor MUXZ 1, L_00821370, L_00820B30, L_008212C0, C4<>;
+S_001E82B8 .scope module, "m4" "mux2x1" 3 17, 3 4, S_001ED108;
+ .timescale 0 0;
+v001EAE78_0 .net "a", 0 0, L_00820D98; 1 drivers
+v001EAED0_0 .net "b", 0 0, L_00820DF0; 1 drivers
+v001EAF28_0 .alias "out", 0 0, v00820690_0;
+v001EA830_0 .net "select", 0 0, L_00820BE0; 1 drivers
+L_00820D40 .functor MUXZ 1, L_00820D98, L_00820DF0, L_00820BE0, C4<>;
+S_001E8230 .scope module, "m5" "mux2x1" 3 22, 3 4, S_001ED108;
+ .timescale 0 0;
+v001E3078_0 .alias "a", 0 0, v008208A0_0;
+v001E30D0_0 .alias "b", 0 0, v008205E0_0;
+v001EADC8_0 .alias "out", 0 0, v00820740_0;
+v001EAE20_0 .net "select", 0 0, L_00820E48; 1 drivers
+L_008210B0 .functor MUXZ 1, L_00821318, L_00821210, L_00820E48, C4<>;
+S_001E8DE0 .scope module, "m6" "mux2x1" 3 23, 3 4, S_001ED108;
+ .timescale 0 0;
+v001E2660_0 .alias "a", 0 0, v00820638_0;
+v001E26B8_0 .alias "b", 0 0, v00820690_0;
+v001E2FC8_0 .alias "out", 0 0, v00820798_0;
+v001E3020_0 .net "select", 0 0, L_00821420; 1 drivers
+L_00821580 .functor MUXZ 1, L_00820C90, L_00820D40, L_00821420, C4<>;
+S_001E8CD0 .scope module, "m7" "mux2x1" 3 27, 3 4, S_001ED108;
+ .timescale 0 0;
+v008226B8_0 .alias "a", 0 0, v00820740_0;
+v00822710_0 .alias "b", 0 0, v00820798_0;
+v00822768_0 .alias "out", 0 0, v008208F8_0;
+v001E2608_0 .net "select", 0 0, L_00821000; 1 drivers
+L_00821478 .functor MUXZ 1, L_008210B0, L_00821580, L_00821000, C4<>;
+    .scope S_001ECF70;
+T_0 ;
+    %vpi_call 2 17 "$dumpfile", "mux8x1_wave.vcd";
+    %vpi_call 2 18 "$dumpvars", 1'sb0, S_001ECF70;
+    %vpi_call 2 20 "$display", "staring giving inputs";
+    %vpi_call 2 22 "$monitor", "a=%b, select=%b, out=%b", v008207F0_0, v00820CE8_0, v008208F8_0;
+    %movi 8, 173, 8;
+    %set/v v008207F0_0, 8, 8;
+    %set/v v00820CE8_0, 0, 3;
+    %delay 10000, 0;
+    %movi 8, 1, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %movi 8, 2, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %movi 8, 3, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %movi 8, 4, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %movi 8, 5, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %movi 8, 6, 3;
+    %set/v v00820CE8_0, 8, 3;
+    %delay 10000, 0;
+    %set/v v00820CE8_0, 1, 3;
+    %delay 10000, 0;
+    %vpi_call 2 38 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux8x1_tb.v";
+    "mux8x1_using2x1.v";
