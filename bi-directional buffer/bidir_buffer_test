@@ -1,0 +1,47 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010B39F8 .scope module, "bidir_buffer_tb" "bidir_buffer_tb" 2 5;
+ .timescale -9 -12;
+v00FE34E8_0 .net "data", 7 0, L_00FE3648; 1 drivers
+v00FE3540_0 .var "din", 7 0;
+v00FE3598_0 .net "dout", 7 0, L_00FE36A0; 1 drivers
+v00FE35F0_0 .var "enable", 0 0;
+S_010B3A80 .scope module, "uut" "bi_dir_buffer" 2 13, 3 3, S_010B39F8;
+ .timescale 0 0;
+L_00FE36A0 .functor BUFZ 8, L_00FE3648, C4<00000000>, C4<00000000>, C4<00000000>;
+v00FE3380_0 .net *"_s0", 7 0, C4<zzzzzzzz>; 0 drivers
+v010B2C58_0 .alias "data", 7 0, v00FE34E8_0;
+v010B2CB0_0 .net "din", 7 0, v00FE3540_0; 1 drivers
+v010B2D08_0 .alias "dout", 7 0, v00FE3598_0;
+v00FE3490_0 .net "enable", 0 0, v00FE35F0_0; 1 drivers
+L_00FE3648 .functor MUXZ 8, C4<zzzzzzzz>, v00FE3540_0, v00FE35F0_0, C4<>;
+    .scope S_010B39F8;
+T_0 ;
+    %vpi_call 2 16 "$dumpfile", "bidir_buffer_wave.vcd";
+    %vpi_call 2 17 "$dumpvars", 1'sb0, S_010B39F8;
+    %vpi_call 2 19 "$display", "time\011 enable\011 din\011 data\011 dout";
+    %vpi_call 2 20 "$monitor", "%t\011 %b\011 %b\011 %b\011 %b\011", $time, v00FE35F0_0, v00FE3540_0, v00FE34E8_0, v00FE3598_0;
+    %set/v v00FE35F0_0, 1, 1;
+    %movi 8, 170, 8;
+    %set/v v00FE3540_0, 8, 8;
+    %delay 10000, 0;
+    %set/v v00FE35F0_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v00FE35F0_0, 1, 1;
+    %movi 8, 204, 8;
+    %set/v v00FE3540_0, 8, 8;
+    %delay 10000, 0;
+    %set/v v00FE35F0_0, 0, 1;
+    %delay 10000, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "bidir_buffer_tb.v";
+    "bidir_buffer.v";
