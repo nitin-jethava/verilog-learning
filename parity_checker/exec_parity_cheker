@@ -1,0 +1,78 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0138CB98 .scope module, "parity_checker_tb" "parity_checker_tb" 2 5;
+ .timescale -9 -12;
+v0138EE40_0 .var "d0", 0 0;
+v0138EE98_0 .var "d1", 0 0;
+v0138EEF0_0 .var "d2", 0 0;
+v0138EF48_0 .var "d3", 0 0;
+v0138A600_0 .net "error", 0 0, L_0138CF88; 1 drivers
+v0138A658_0 .var "parity", 0 0;
+S_0138C868 .scope module, "uut" "parity_checker" 2 12, 3 7, S_0138CB98;
+ .timescale 0 0;
+L_0138EFA0 .functor XOR 1, v0138EF48_0, v0138EEF0_0, C4<0>, C4<0>;
+L_0138CE38 .functor XOR 1, L_0138EFA0, v0138EE98_0, C4<0>, C4<0>;
+L_0138CEE0 .functor XOR 1, L_0138CE38, v0138EE40_0, C4<0>, C4<0>;
+L_0138CF88 .functor XOR 1, L_0138CEE0, v0138A658_0, C4<0>, C4<0>;
+v01382C50_0 .net *"_s0", 0 0, L_0138EFA0; 1 drivers
+v01382CA8_0 .net *"_s2", 0 0, L_0138CE38; 1 drivers
+v01382D00_0 .net *"_s4", 0 0, L_0138CEE0; 1 drivers
+v01383600_0 .net "d0", 0 0, v0138EE40_0; 1 drivers
+v01383658_0 .net "d1", 0 0, v0138EE98_0; 1 drivers
+v013836B0_0 .net "d2", 0 0, v0138EEF0_0; 1 drivers
+v01383708_0 .net "d3", 0 0, v0138EF48_0; 1 drivers
+v0138ED90_0 .alias "error", 0 0, v0138A600_0;
+v0138EDE8_0 .net "parity", 0 0, v0138A658_0; 1 drivers
+    .scope S_0138CB98;
+T_0 ;
+    %vpi_call 2 16 "$dumpfile", "wave_parity_checker.vcd";
+    %vpi_call 2 17 "$dumpvars", 1'sb0, S_0138CB98;
+    %vpi_call 2 19 "$monitor", "time: %0t | d3: %b | d2: %b | d1: %b | d0: %b | parity: %b | error: %b", $time, v0138EF48_0, v0138EEF0_0, v0138EE98_0, v0138EE40_0, v0138A658_0, v0138A600_0;
+    %set/v v0138EF48_0, 0, 1;
+    %set/v v0138EEF0_0, 0, 1;
+    %set/v v0138EE98_0, 0, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0138EF48_0, 0, 1;
+    %set/v v0138EEF0_0, 0, 1;
+    %set/v v0138EE98_0, 1, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v0138EF48_0, 1, 1;
+    %set/v v0138EEF0_0, 0, 1;
+    %set/v v0138EE98_0, 1, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0138EF48_0, 1, 1;
+    %set/v v0138EEF0_0, 1, 1;
+    %set/v v0138EE98_0, 1, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v0138EF48_0, 0, 1;
+    %set/v v0138EEF0_0, 1, 1;
+    %set/v v0138EE98_0, 1, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v0138EF48_0, 1, 1;
+    %set/v v0138EEF0_0, 1, 1;
+    %set/v v0138EE98_0, 1, 1;
+    %set/v v0138EE40_0, 0, 1;
+    %set/v v0138A658_0, 0, 1;
+    %delay 10000, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "parity_checker_tb.v";
+    "parity_checker.v";

@@ -1,0 +1,112 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010E8900 .scope module, "operator_tb" "operator_tb" 2 8;
+ .timescale -9 -12;
+v00FE3A40_0 .var "a", 0 0;
+v0101D818_0 .net "and_out", 0 0, L_00FE1FC0; 1 drivers
+v0101D7C0_0 .var "b", 0 0;
+v0101D870_0 .net "bitwise_and_out", 3 0, L_00FF1A20; 1 drivers
+v0101D8C8_0 .net "bitwise_not_a", 3 0, L_00FF1BA8; 1 drivers
+v0101D920_0 .net "bitwise_or_out", 3 0, L_00FF1B38; 1 drivers
+v0101D978_0 .net "bitwise_xor_out", 3 0, L_00FF1B70; 1 drivers
+v0101D9D0_0 .net "not_a", 0 0, L_0101D088; 1 drivers
+v0101DA28_0 .net "or_out", 0 0, L_00FE5DF8; 1 drivers
+v0101DA80_0 .net "red_and_out", 3 0, L_0101D450; 1 drivers
+v0101DAD8_0 .net "red_or_out", 3 0, L_0101CCC0; 1 drivers
+v0101DB30_0 .net "red_xor_out", 3 0, L_0101CDC8; 1 drivers
+v0101DB88_0 .var "x", 3 0;
+v0101DBE0_0 .var "y", 3 0;
+v0101D768_0 .var "z", 3 0;
+S_010E8FE8 .scope module, "u1" "logical_operator" 2 26, 3 5, S_010E8900;
+ .timescale 0 0;
+L_00FE1FC0 .functor AND 1, v00FE3A40_0, v0101D7C0_0, C4<1>, C4<1>;
+L_00FE5DF8 .functor OR 1, v00FE3A40_0, v0101D7C0_0, C4<0>, C4<0>;
+v00FE37D8_0 .net "a", 0 0, v00FE3A40_0; 1 drivers
+v00FE3830_0 .alias "and_out", 0 0, v0101D818_0;
+v00FE3888_0 .net "b", 0 0, v0101D7C0_0; 1 drivers
+v00FE3990_0 .alias "not_a", 0 0, v0101D9D0_0;
+v00FE39E8_0 .alias "or_out", 0 0, v0101DA28_0;
+L_0101D088 .reduce/nor v00FE3A40_0;
+S_010E8768 .scope module, "u2" "bitwise_operator" 2 28, 4 5, S_010E8900;
+ .timescale 0 0;
+L_00FF1A20 .functor AND 4, v0101DB88_0, v0101DBE0_0, C4<1111>, C4<1111>;
+L_00FF1B38 .functor OR 4, v0101DB88_0, v0101DBE0_0, C4<0000>, C4<0000>;
+L_00FF1B70 .functor XOR 4, v0101DB88_0, v0101DBE0_0, C4<0000>, C4<0000>;
+L_00FF1BA8 .functor NOT 4, v0101DB88_0, C4<0000>, C4<0000>, C4<0000>;
+v00FE36D0_0 .net "a", 3 0, v0101DB88_0; 1 drivers
+v00FE38E0_0 .net "b", 3 0, v0101DBE0_0; 1 drivers
+v00FE3728_0 .alias "bitwise_and", 3 0, v0101D870_0;
+v00FE3570_0 .alias "bitwise_not", 3 0, v0101D8C8_0;
+v00FE3468_0 .alias "bitwise_or", 3 0, v0101D920_0;
+v00FE3780_0 .alias "bitwise_xor", 3 0, v0101D978_0;
+S_010E8B20 .scope module, "u3" "reduction_operator" 2 31, 5 4, S_010E8900;
+ .timescale 0 0;
+v00FE3A98_0 .net *"_s1", 0 0, L_0101D3F8; 1 drivers
+v00FE34C0_0 .net *"_s11", 2 0, C4<000>; 1 drivers
+v00FE35C8_0 .net *"_s13", 0 0, L_0101D298; 1 drivers
+v00FE3410_0 .net *"_s17", 2 0, C4<000>; 1 drivers
+v00FE33B8_0 .net *"_s5", 2 0, C4<000>; 1 drivers
+v00FE3620_0 .net *"_s7", 0 0, L_0101D710; 1 drivers
+v00FE3AF0_0 .net "a", 3 0, v0101D768_0; 1 drivers
+v00FE3518_0 .alias "reduc_and", 3 0, v0101DA80_0;
+v00FE3938_0 .alias "reduc_or", 3 0, v0101DAD8_0;
+v00FE3678_0 .alias "reduc_xor", 3 0, v0101DB30_0;
+L_0101D3F8 .reduce/and v0101D768_0;
+L_0101D450 .concat [ 1 3 0 0], L_0101D3F8, C4<000>;
+L_0101D710 .reduce/or v0101D768_0;
+L_0101CCC0 .concat [ 1 3 0 0], L_0101D710, C4<000>;
+L_0101D298 .reduce/xor v0101D768_0;
+L_0101CDC8 .concat [ 1 3 0 0], L_0101D298, C4<000>;
+    .scope S_010E8900;
+T_0 ;
+    %vpi_call 2 36 "$dumpfile", "operator_wave.vcd";
+    %vpi_call 2 37 "$dumpvars", 1'sb0, S_010E8900;
+    %vpi_call 2 39 "$display", "=======test begin===========";
+    %vpi_call 2 41 "$display", "logical test";
+    %set/v v00FE3A40_0, 0, 1;
+    %set/v v0101D7C0_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v00FE3A40_0, 1, 1;
+    %set/v v0101D7C0_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v00FE3A40_0, 1, 1;
+    %set/v v0101D7C0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 47 "$display", "Logical Results: and=%b, or=%b, not a=%b", v0101D818_0, v0101DA28_0, v0101D9D0_0;
+    %vpi_call 2 48 "$display", "bitwise test";
+    %movi 8, 12, 4;
+    %set/v v0101DB88_0, 8, 4;
+    %movi 8, 10, 4;
+    %set/v v0101DBE0_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 6, 4;
+    %set/v v0101DB88_0, 8, 4;
+    %movi 8, 13, 4;
+    %set/v v0101DBE0_0, 8, 4;
+    %delay 10000, 0;
+    %vpi_call 2 53 "$display", "bitwise result: and=%b, or=%b, xor=%b, not_a=%b", v0101D870_0, v0101D920_0, v0101D978_0, v0101D8C8_0;
+    %vpi_call 2 55 "$display", "Reduction test";
+    %movi 8, 13, 4;
+    %set/v v0101D768_0, 8, 4;
+    %delay 10000, 0;
+    %set/v v0101D768_0, 1, 4;
+    %delay 10000, 0;
+    %set/v v0101D768_0, 0, 4;
+    %delay 10000, 0;
+    %vpi_call 2 60 "$display", "Reduction result: and=%b, or=%b, xor=%b", v0101DA80_0, v0101DAD8_0, v0101DB30_0;
+    %vpi_call 2 62 "$display", "all stimulus applied";
+    %vpi_call 2 64 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "operator_tb.v";
+    "logical_operator.v";
+    "bitwise_operator.v";
+    "reduction_operator.v";

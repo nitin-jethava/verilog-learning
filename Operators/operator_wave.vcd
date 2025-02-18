@@ -1,0 +1,134 @@
+$date
+	Sat Feb 15 14:59:51 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module operator_tb $end
+$var wire 1 ! and_out $end
+$var wire 4 " bitwise_and_out [3:0] $end
+$var wire 4 # bitwise_not_a [3:0] $end
+$var wire 4 $ bitwise_or_out [3:0] $end
+$var wire 4 % bitwise_xor_out [3:0] $end
+$var wire 1 & not_a $end
+$var wire 1 ' or_out $end
+$var wire 4 ( red_and_out [3:0] $end
+$var wire 4 ) red_or_out [3:0] $end
+$var wire 4 * red_xor_out [3:0] $end
+$var reg 1 + a $end
+$var reg 1 , b $end
+$var reg 4 - x [3:0] $end
+$var reg 4 . y [3:0] $end
+$var reg 4 / z [3:0] $end
+$scope module u1 $end
+$var wire 1 0 a $end
+$var wire 1 ! and_out $end
+$var wire 1 1 b $end
+$var wire 1 & not_a $end
+$var wire 1 ' or_out $end
+$upscope $end
+$scope module u2 $end
+$var wire 4 2 a [3:0] $end
+$var wire 4 3 b [3:0] $end
+$var wire 4 4 bitwise_and [3:0] $end
+$var wire 4 5 bitwise_not [3:0] $end
+$var wire 4 6 bitwise_or [3:0] $end
+$var wire 4 7 bitwise_xor [3:0] $end
+$upscope $end
+$scope module u3 $end
+$var wire 4 8 a [3:0] $end
+$var wire 4 9 reduc_and [3:0] $end
+$var wire 4 : reduc_or [3:0] $end
+$var wire 4 ; reduc_xor [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0x ;
+b0x :
+b0x 9
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+bx 2
+11
+00
+bx /
+bx .
+bx -
+1,
+0+
+b0x *
+b0x )
+b0x (
+1'
+1&
+bx %
+bx $
+bx #
+bx "
+0!
+$end
+#10000
+0,
+01
+1+
+10
+0&
+#30000
+b1000 "
+b1000 4
+b1110 $
+b1110 6
+b110 %
+b110 7
+b11 #
+b11 5
+b1010 .
+b1010 3
+b1100 -
+b1100 2
+#40000
+b100 "
+b100 4
+b1111 $
+b1111 6
+b1011 %
+b1011 7
+b1001 #
+b1001 5
+b1101 .
+b1101 3
+b110 -
+b110 2
+#50000
+b1101 /
+b1101 8
+b0 (
+b0 9
+b1 )
+b1 :
+b1 *
+b1 ;
+#60000
+b1111 /
+b1111 8
+b1 (
+b1 9
+b0 *
+b0 ;
+#70000
+b0 /
+b0 8
+b0 (
+b0 9
+b0 )
+b0 :
+#80000
